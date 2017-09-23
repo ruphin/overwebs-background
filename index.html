@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<script type="module" src="src/overwebs-background.js"></script>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #223;
+  }
+
+  * {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+   :root {
+    --overwebs-window-size: 100vw;
+  }
+</style>
+
+<!-- build:remove -->
+<span id="browser-sync-binding"></span>
+<!-- endbuild -->
+
+<overwebs-background low-bandwidth id="background"></overwebs-background>
+
+<script>
+  // Where to load assets from modules
+  window.modulesAssetPath = function (module) {
+    if (module === 'overwebs-background-data') {
+      return 'derp';
+    } else {
+      return `node_modules/${module}`;
+    }
+  }
+
+  const backgrounds = { "to_play": { "transition": "play", "preload": ["play_to_main"], "video": "derp/volskaya/shared/to_play.mp4", "image": "derp/volskaya/shared/to_play.jpg" }, "to_training": { "mirror": "to_play" }, "play": { "preload": ["play_to_main"], "video": "derp/volskaya/shared/play.mp4", "image": "derp/volskaya/shared/play.jpg" }, "training": { "mirror": "play" }, "to_competitive": { "transition": "competitive", "preload": ["competitive_to_play"], "video": "derp/volskaya/shared/to_competitive.mp4", "image": "derp/volskaya/shared/to_competitive.jpg" }, "to_arcade": { "mirror": "to_competitive" }, "to_vs-ai": { "mirror": "to_competitive" }, "competitive": { "preload": ["competitive_to_play"], "video": "derp/volskaya/shared/competitive.mp4", "image": "derp/volskaya/shared/competitive.jpg" }, "arcade": { "mirror": "competitive" }, "vs-ai": { "mirror": "competitive" }, "competitive_to_play": { "transition": ["play"], "video": "derp/volskaya/shared/competitive_to_play.mp4", "image": "derp/volskaya/shared/competitive_to_play.jpg" }, "arcade_to_play": { "mirror": "competitive_to_play" }, "vs-ai_to_play": { "mirror": "competitive_to_play" }, "vs-ai_to_training": { "mirror": "competitive_to_play" }, "to_hero-gallery": { "transition": "hero-gallery", "preload": ["hero-gallery_to_main"], "video": "derp/volskaya/shared/to_hero-gallery.mp4", "image": "derp/volskaya/shared/to_hero-gallery.jpg" }, "hero-gallery": { "preload": ["hero-gallery_to_main"], "video": "derp/volskaya/shared/hero-gallery.mp4", "image": "derp/volskaya/shared/hero-gallery.jpg" }, "login": { "preload": ["to_main"], "video": false, "image": "derp/shared/login.jpg" }, "to_main": { "transition": "main", "preload": ["to_play", "to_hero-gallery"], "video": "derp/volskaya/genji/to_main.mp4", "image": "derp/to_main.jpg" }, "main": { "preload": ["to_play", "to_hero-gallery"], "video": "derp/volskaya/genji/main.mp4", "image": "derp/main.jpg" }, "play_to_main": { "transition": "main", "video": "derp/volskaya/genji/play_to_main.mp4", "image": "derp/play_to_main.jpg" }, "training_to_main": { "mirror": "play_to_main" }, "hero-gallery_to_main": { "transition": "main", "video": "derp/volskaya/genji/hero-gallery_to_main.mp4", "image": "derp/hero-gallery_to_main.jpg" } };
+  setTimeout(() => {
+    document.getElementById('background').backgrounds = backgrounds;
+  }, 200)
+
+</script>
