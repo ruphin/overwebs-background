@@ -22,5 +22,6 @@
     "build": "gulp",
     "dev": "gulp serve",
     "publish": "git add overwebs-background.js"
-  }
+  },
+  "version": "0.0.1"
 }
