@@ -1,27 +1,29 @@
 {
   "name": "overwebs-background",
   "description": "Overwebs Background Web Component",
-  "main": "overwebs-background.js",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/overwebs-background.js",
+  "module": "dist/overwebs-background.js",
+  "exports": {
+    ".": "./dist/overwebs-background.js"
+  },
+  "files": [
+    "dist"
+  ],
   "repository": "git@github.com:ruphin/overwebs-background.git",
   "author": "Goffert van Gool",
   "license": "MIT",
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-minify": "^0.2.0",
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^7.0.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-sourcemaps": "^2.6.1"
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "gluonjs": "^2.0.2"
   },
-  "scripts": {
-    "build": "gulp",
-    "dev": "gulp serve",
-    "publish": "git add overwebs-background.js"
-  },
-  "version": "1.0.0"
+  "devDependencies": {
+    "vite": "^8.3.3"
+  }
 }
